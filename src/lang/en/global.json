@@ -1,0 +1,17 @@
+{
+  "header": {
+    "app_name": "Cambodia Drug Dealer University"
+  },
+  "sidebar": {
+    "sub_app_name": "Drug University",
+    "location": "Siem Reap",
+    "menu": "Menu",
+    "dashboard": "Dashboard",
+    "staffs": "Staffs",
+    "student": "Student",
+    "settings": "Settings"
+  },
+  "home": {
+    "body": "lorem ipsum dolor sit amet, consectetur adip"
+  }
+}

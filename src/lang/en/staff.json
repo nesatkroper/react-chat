@@ -1,0 +1,20 @@
+{
+  "header": {
+    "register": "Register New Staff",
+    "search": "Search ..."
+  },
+  "table": {
+    "no": "No.",
+    "photo": "Photo",
+    "name": "Name",
+    "gender": "Gender",
+    "phone": "Phone",
+    "department": "Department",
+    "subject": "Subject",
+    "salary": "Salary",
+    "payment": "Payment",
+    "status": "Status",
+    "action": "Action",
+    "sub_title": "A list of your recent students."
+  }
+}

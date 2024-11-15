@@ -1,0 +1,2 @@
+export const profileImage =
+  "https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/364140407_1000937044267100_5227291723718666961_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeHPsC3gRI04zzkiCyrl3e8emINOQypgK16Yg05DKmArXrviQ-0r2AHLqIE6n1CgunM6GVRojK94nsfw9Q5ZfNkQ&_nc_ohc=S9k9X8bshi0Q7kNvgHyie_Y&_nc_zt=23&_nc_ht=scontent.fpnh10-1.fna&_nc_gid=AhPbDQEyp6TBNCUikzZzeDK&oh=00_AYDwsvbL79KvJ2fKYXv2p8-41SrbrwvNDzflizn_LCknjQ&oe=67258EAE";

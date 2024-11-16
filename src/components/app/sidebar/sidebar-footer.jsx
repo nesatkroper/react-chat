@@ -16,8 +16,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 // import { getUser } from "@/app/reducer/userSlice";
 import profileImage from "@/assets/images/profile.jpg";
-import axiosInstance from "@/config/axiosInstance";
-import { useAuth } from "@/config/AuthProvider";
+import axiosInstance from "@/providers/axiosInstance";
+import { useAuth } from "@/providers/auth-provider";
 import { useNavigate } from "react-router-dom";
 
 const MySidebarFooter = () => {

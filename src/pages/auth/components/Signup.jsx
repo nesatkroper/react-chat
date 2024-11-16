@@ -4,56 +4,47 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ConfettiButton } from "@/components/ui/confetti";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import axiosInstance from "@/config/axiosInstance";
-import { useAuth } from "@/config/AuthProvider";
+import axios from "@/providers/auth-axios";
+import { useAuth } from "@/providers/auth-provider";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const [show, setShow] = useState(false);
-  const { setToken } = useAuth();
   const navigate = useNavigate();
+  const { setToken } = useAuth();
+  const [show, setShow] = useState(false);
   const [err, setErr] = useState(false);
   const [msg, setMsg] = useState("");
   const [c_password, setCPassword] = useState("");
   const [auth, setAuth] = useState({
-    name: "",
-    gender: "male",
-    username: "",
     email: "",
     password: "",
+    name: "",
+    role: "User",
   });
 
   const handleChange = (e) => {
-    setAuth({ ...auth, [e.target.name]: [e.target.value] });
+    setAuth({ ...auth, [e.target.name]: e.target.value });
+    setErr(false);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (auth.password != c_password) {
       setErr(true);
       setMsg("Password is incorrect");
     } else {
       try {
-        const response = await axiosInstance.post("/register", {
-          name: auth.name[0],
-          gender: auth.gender[0],
-          username: auth.username[0],
-          email: auth.email[0],
-          password: auth.password[0],
-        });
+        const response = await axios.post("/register", auth);
 
-        if (response.data.status) {
+        if (response.data.token) {
           setToken(response.data.token);
-          localStorage.setItem("baseUrl", "http://localhost:8000/");
-          localStorage.setItem("id", response.data.user.usr_id);
           navigate("/", { replace: true });
         } else {
           setErr(true);
           setMsg(response.data.message);
         }
       } catch (e) {
+        setErr(e.response?.data?.error || "Something went wrong.");
         console.log(e);
       }
     }
@@ -77,10 +68,7 @@ const Signup = () => {
         <div className="grid w-full max-w-sm items-center gap-1.5 my-4">
           <Label htmlFor="name">Name*</Label>
           <Input
-            onChange={(e) => {
-              handleChange(e);
-              setErr(false);
-            }}
+            onChange={handleChange}
             type="text"
             name="name"
             placeholder="Jonh Cena"
@@ -88,50 +76,9 @@ const Signup = () => {
           />
         </div>
         <div className="grid w-full max-w-sm items-center gap-1.5 my-4">
-          <Label htmlFor="gender">Gender*</Label>
-          <RadioGroup
-            onValueChange={(value) =>
-              handleChange({ target: { name: "gender", value } })
-            }
-            name="gender"
-            defaultValue="other"
-            className="flex flex-row"
-            required
-          >
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="other" id="other" />
-              <Label htmlFor="other">Other</Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="male" id="male" />
-              <Label htmlFor="male">Male</Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="female" id="female" />
-              <Label htmlFor="female">Female</Label>
-            </div>
-          </RadioGroup>
-        </div>
-        <div className="grid w-full max-w-sm items-center gap-1.5 my-4">
-          <Label htmlFor="username">Username*</Label>
-          <Input
-            onChange={(e) => {
-              handleChange(e);
-              setErr(false);
-            }}
-            type="text"
-            name="username"
-            placeholder="@jonhcena"
-            required
-          />
-        </div>
-        <div className="grid w-full max-w-sm items-center gap-1.5 my-4">
           <Label htmlFor="email">Email*</Label>
           <Input
-            onChange={(e) => {
-              handleChange(e);
-              setErr(false);
-            }}
+            onChange={handleChange}
             type="email"
             name="email"
             placeholder="jonhcena@example.com"
@@ -141,10 +88,7 @@ const Signup = () => {
         <div className="grid w-full max-w-sm items-center gap-1.5 mb-2">
           <Label htmlFor="password">Password*</Label>
           <Input
-            onChange={(e) => {
-              handleChange(e);
-              setErr(false);
-            }}
+            onChange={handleChange}
             type={show ? "text" : "password"}
             name="password"
             placeholder="Password"

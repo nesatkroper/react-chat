@@ -1,4 +1,4 @@
-import Layout from "../../components/app/Layout";
+import Layout from "../../components/app/layout";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 

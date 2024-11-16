@@ -1,7 +1,7 @@
 import { Sidebar } from "@/components/ui/sidebar";
-import MySidebarHeader from "./sidebar-header";
-import MySidebarFooter from "./sidebar-footer";
-import MySidebarContent from "./sidebar-content";
+import MySidebarHeader from "./sidebar/sidebar-header";
+import MySidebarFooter from "./sidebar/sidebar-footer";
+import MySidebarContent from "./sidebar/sidebar-content";
 
 // Menu items.
 

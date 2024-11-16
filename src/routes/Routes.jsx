@@ -3,7 +3,7 @@ import {
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
-import { useAuth } from "@/config/AuthProvider";
+import { useAuth } from "@/providers/auth-provider";
 import { ProtectedRoute } from "@/routes/ProtectedRoute";
 import Auth from "@/pages/auth/Auth";
 import NotFound from "@/pages/404/NotFound";

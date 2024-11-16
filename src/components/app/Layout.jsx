@@ -1,8 +1,8 @@
 import Header from "./header";
-import AppSidebar from "./sidebar/sidebar";
+import AppSidebar from "./sidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 
-const layout = ({ children }) => {
+const Layout = ({ children }) => {
   return (
     <SidebarProvider defaultOpen={false}>
       <AppSidebar />
@@ -14,4 +14,4 @@ const layout = ({ children }) => {
   );
 };
 
-export default layout;
+export default Layout;

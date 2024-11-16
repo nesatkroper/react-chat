@@ -1,4 +1,4 @@
-import AuthProvider from "@/config/AuthProvider";
+import AuthProvider from "@/providers/auth-provider";
 import Routes from "@/routes/Routes";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 

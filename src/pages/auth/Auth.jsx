@@ -4,15 +4,13 @@ import { BorderBeam } from "@/components/ui/border-beam";
 import RetroGrid from "@/components/ui/retro-grid";
 import Signin from "./components/Signin";
 import Signup from "./components/Signup";
-import { Link } from "react-router-dom";
 
 const Auth = () => {
   return (
     <div className="flex items-center justify-center h-[100vh]">
-      <Link to="/home">home</Link>
       <Card className="relative rounded-xl ">
         <BorderBeam duration={5} size={500} borderWidth={2} />
-        <CardContent className="w-[400px] p-0 shadow-2xl rounded-xl bg-opacity-100">
+        <CardContent className="w-[340px] p-0 shadow-2xl rounded-xl bg-opacity-100">
           <Tabs
             defaultValue="signin"
             className="w-full flex  flex-col justify-center"

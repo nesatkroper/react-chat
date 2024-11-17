@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import { useAuth } from "@/providers/auth-provider";
 import { ProtectedRoute } from "@/routes/ProtectedRoute";
-import Auth from "@/pages/auth/Auth";
+import Auth from "@/pages/auth/auth";
 import NotFound from "@/pages/404/NotFound";
 import HomePage from "@/pages/home/home-page";
 

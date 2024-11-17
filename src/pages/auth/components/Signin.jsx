@@ -14,6 +14,7 @@ const Signin = () => {
   const [show, setShow] = useState(false);
   const [err, setErr] = useState(false);
   const [msg, setMsg] = useState("");
+  const [isComplete, setIsComplete] = useState(false);
   const [auth, setAuth] = useState({
     email: "",
     password: "",
@@ -22,6 +23,9 @@ const Signin = () => {
   const handleChange = (e) => {
     setAuth({ ...auth, [e.target.name]: e.target.value });
     setErr(false);
+
+    if (auth.email.includes("@") && auth.email != "" && auth.password != "")
+      setIsComplete(true);
   };
 
   const handleSubmit = async (e) => {
@@ -87,7 +91,11 @@ const Signin = () => {
           </label>
         </div>
 
-        <ConfettiButton type="submit" className="w-full">
+        <ConfettiButton
+          disabled={isComplete ? false : true}
+          type="submit"
+          className="w-full"
+        >
           Sign In
         </ConfettiButton>
       </form>

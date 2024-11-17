@@ -2,8 +2,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { BorderBeam } from "@/components/ui/border-beam";
 import RetroGrid from "@/components/ui/retro-grid";
-import Signin from "./components/Signin";
-import Signup from "./components/Signup";
+import Signin from "./components/signin";
+import Signup from "./components/signup";
 
 const Auth = () => {
   return (

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { apiUrl } from "@/providers/api-url";
+import { apiUrl } from "@/config/api-url";
 
 const axiosInstance = axios.create({
   baseURL: apiUrl,
